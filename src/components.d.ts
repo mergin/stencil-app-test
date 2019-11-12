@@ -12,12 +12,24 @@ import {
 } from '@stencil/router';
 
 export namespace Components {
-  interface AppHome {}
+  interface AppHome {
+    'textItems': any[];
+  }
   interface AppProfile {
     'match': MatchResults;
   }
   interface AppRoot {}
-  interface BsSlider {}
+  interface BsMegaMenu {}
+  interface BsSlider {
+    'image': string;
+    'text': string;
+    'title': string;
+  }
+  interface BsTabsShortcodes {}
+  interface BsTextBlock {
+    'columns': any[];
+    'title': string;
+  }
 }
 
 declare global {
@@ -41,32 +53,68 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
+  interface HTMLBsMegaMenuElement extends Components.BsMegaMenu, HTMLStencilElement {}
+  var HTMLBsMegaMenuElement: {
+    prototype: HTMLBsMegaMenuElement;
+    new (): HTMLBsMegaMenuElement;
+  };
+
   interface HTMLBsSliderElement extends Components.BsSlider, HTMLStencilElement {}
   var HTMLBsSliderElement: {
     prototype: HTMLBsSliderElement;
     new (): HTMLBsSliderElement;
   };
+
+  interface HTMLBsTabsShortcodesElement extends Components.BsTabsShortcodes, HTMLStencilElement {}
+  var HTMLBsTabsShortcodesElement: {
+    prototype: HTMLBsTabsShortcodesElement;
+    new (): HTMLBsTabsShortcodesElement;
+  };
+
+  interface HTMLBsTextBlockElement extends Components.BsTextBlock, HTMLStencilElement {}
+  var HTMLBsTextBlockElement: {
+    prototype: HTMLBsTextBlockElement;
+    new (): HTMLBsTextBlockElement;
+  };
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
+    'bs-mega-menu': HTMLBsMegaMenuElement;
     'bs-slider': HTMLBsSliderElement;
+    'bs-tabs-shortcodes': HTMLBsTabsShortcodesElement;
+    'bs-text-block': HTMLBsTextBlockElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface AppHome {}
+  interface AppHome {
+    'textItems'?: any[];
+  }
   interface AppProfile {
     'match'?: MatchResults;
   }
   interface AppRoot {}
-  interface BsSlider {}
+  interface BsMegaMenu {}
+  interface BsSlider {
+    'image'?: string;
+    'text'?: string;
+    'title'?: string;
+  }
+  interface BsTabsShortcodes {}
+  interface BsTextBlock {
+    'columns'?: any[];
+    'title'?: string;
+  }
 
   interface IntrinsicElements {
     'app-home': AppHome;
     'app-profile': AppProfile;
     'app-root': AppRoot;
+    'bs-mega-menu': BsMegaMenu;
     'bs-slider': BsSlider;
+    'bs-tabs-shortcodes': BsTabsShortcodes;
+    'bs-text-block': BsTextBlock;
   }
 }
 
@@ -79,7 +127,10 @@ declare module "@stencil/core" {
       'app-home': LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
       'app-profile': LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
       'app-root': LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+      'bs-mega-menu': LocalJSX.BsMegaMenu & JSXBase.HTMLAttributes<HTMLBsMegaMenuElement>;
       'bs-slider': LocalJSX.BsSlider & JSXBase.HTMLAttributes<HTMLBsSliderElement>;
+      'bs-tabs-shortcodes': LocalJSX.BsTabsShortcodes & JSXBase.HTMLAttributes<HTMLBsTabsShortcodesElement>;
+      'bs-text-block': LocalJSX.BsTextBlock & JSXBase.HTMLAttributes<HTMLBsTextBlockElement>;
     }
   }
 }

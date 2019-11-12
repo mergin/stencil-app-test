@@ -1,28 +1,57 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'app-home',
-  styleUrl: 'app-home.css',
-  shadow: true
+    tag: 'app-home',
+    styleUrl: 'app-home.css',
+    shadow: true
 })
 export class AppHome {
 
-  render() {
-    return (
-      <div class='app-home'>
-        <p>
-          Welcome to the Stencil App Starter.
-          You can use this starter to build entire apps all with
-          web components using Stencil!
-          Check out our docs on <a href='https://stenciljs.com'>stenciljs.com</a> to get started.
-        </p>
+    @Prop() textItems: any[] = [
+        {
+            icon: 'exclamation',
+            title: 'Lorem ipsum dolor sit, amet consectetur',
+            text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel voluptatum necessitatibus quos. Libero temporibus consectetur tempora veritatis eius praesentium'
+        },
+        {
+            icon: 'check',
+            title: 'Lorem ipsum dolor sit, amet consectetur',
+            text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel voluptatum necessitatibus quos. Libero temporibus consectetur tempora veritatis eius praesentium'
+        },
+        {
+            icon: 'thumbsup',
+            title: 'Lorem ipsum dolor sit, amet consectetur',
+            text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel voluptatum necessitatibus quos. Libero temporibus consectetur tempora veritatis eius praesentium'
+        }
+    ];
 
-        <stencil-route-link url='/profile/stencil'>
-          <button>
-            Profile page
-          </button>
-        </stencil-route-link>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div class='app-home'>
+
+                {/* slider */}
+                <bs-slider
+                    title="Cuenta Mi Tesoro"
+                    text="Tenemos la cuenta que hace que ahorres automágicamente">
+                </bs-slider>
+
+                {/* tabs with shortcodes */}
+                <bs-tabs-shortcodes>
+
+                </bs-tabs-shortcodes>
+
+                {/* text block */}
+                <bs-text-block
+                    title="¿Por qué Banc Sabadell?"
+                    columns={this.textItems}>
+                </bs-text-block>
+
+                {/* <stencil-route-link url='/profile/stencil'>
+                    <button>
+                        Profile page
+                    </button>
+                </stencil-route-link> */}
+            </div>
+        );
+    }
 }

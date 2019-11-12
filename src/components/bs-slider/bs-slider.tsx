@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Prop } from '@stencil/core';
 
 @Component({
     tag: 'bs-slider',
@@ -7,9 +7,17 @@ import { Component, Host, h } from '@stencil/core';
 })
 export class BsSlider {
 
+    @Prop() title: string;
+
+    @Prop() image: string;
+
+    @Prop() text: string;
+
     render() {
         return (
             <Host>
+                <h1>{this.title}</h1>
+                <p>{this.text}</p>
                 <slot></slot>
             </Host>
         );

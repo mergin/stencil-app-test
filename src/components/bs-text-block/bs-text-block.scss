@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  .grid-container {
+    grid-template-areas:
+      "header header header header header header"
+      "main main main main main main";
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 10px;
+    background-color: pink;
+    padding: 10px;
+    .header {
+      grid-area: header;
+      text-align: center;
+      background-color: cyan;
+    }
+    .item2 {
+      grid-area: menu;
+    }
+    .item3 {
+      grid-area: main;
+    }
+    .item4 {
+      grid-area: right;
+    }
+    .item5 {
+      grid-area: footer;
+    }
+  }
+}
